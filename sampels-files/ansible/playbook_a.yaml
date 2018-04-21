@@ -1,0 +1,7 @@
+- name: Reconfigure lab machine
+  hosts: students
+  tasks:
+    - name: Create ssh dir
+	  file:
+	    state: directory
+		  path: /home/{{username}}/.ssh

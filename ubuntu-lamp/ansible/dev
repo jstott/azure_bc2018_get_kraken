@@ -1,0 +1,3 @@
+[web]
+lamp0 ansible_ssh_host=ots-lamp-dev-0.eastus2.cloudapp.azure.com
+lamp1 ansible_ssh_host=ots-lamp-dev-1.eastus2.cloudapp.azure.com

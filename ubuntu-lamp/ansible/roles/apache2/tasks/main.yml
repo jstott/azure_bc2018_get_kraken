@@ -1,0 +1,25 @@
+---
+# Install appache2 - and run the equivalent of apt-get update before the operation
+- name: (1) Install Apache
+  apt: 
+    name: apache2
+    update_cache: yes 
+    state: present
+
+- name: (2) Install PHP, PHP-MYSQL
+  apt: name="{{ item }}"
+       state=latest
+  with_items:
+      - php
+      - php-mysql
+      - libapache2-mod-php
+
+# - name: (2) Install PHP module for Apache
+#   apt: name=libapache2-mod-php5 state=present
+
+- name: (3) Start Apache
+  service: name=apache2 state=started enabled=yes
+
+  # Copy index.php - only if it does not alreay exist
+- name: (4) Install Hello World PHP script
+  copy: src=index.php dest=/var/www/html/index.php mode=0664 force=no 

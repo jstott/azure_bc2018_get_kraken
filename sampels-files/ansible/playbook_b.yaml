@@ -1,0 +1,11 @@
+- name: Reconfigure lab machine
+  hosts: students
+  vars:
+    user_home: "/home/{{ username }}"
+    user_ssh_dir: "{{ user_home }}/.ssh"
+    sandbox_dir: "{{ user_home }}/sandbox"
+  tasks:
+    - name: Create ssh dir
+	  file:
+	    state: directory
+		  path: "{{ user_ssh_dir }}

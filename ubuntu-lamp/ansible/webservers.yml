@@ -1,0 +1,20 @@
+---
+# file: webservers.yml
+# Install LAMP Stack (Linux, Apache, MySQL[Mariadb], PHP)
+# Include common setups: Update, Cowsay...
+- hosts: web
+  become: true
+
+  tasks:
+
+    - name: Get username
+      local_action: command whoami
+      register: var_whoami
+      become: false
+      
+    - debug: var=var_whoami
+
+  roles:
+    - common
+    - apache2
+    - mariadb

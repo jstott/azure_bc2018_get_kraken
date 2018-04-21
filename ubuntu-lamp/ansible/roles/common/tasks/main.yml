@@ -1,0 +1,17 @@
+---
+# file: common/tasks/main.yml
+# Add any common/core items your organization requires 
+- name: (1) Install cowsay lineart utility
+  apt: 
+    name: cowsay 
+    state: present
+    update_cache: yes
+
+- name: (2) Copy silly script
+  copy: src=testme.sh dest=~/testme.sh mode=0777 force=no
+  become: false
+
+- name: (3) Screenfetch - Bash Screenshot Information Tool
+  apt: 
+    name: screenfetch 
+    state: present

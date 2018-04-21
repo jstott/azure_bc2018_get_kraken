@@ -1,0 +1,16 @@
+all:
+  children:
+    dispatcher:
+      hosts:
+        dispatcher-00:
+          ansible_host: 10.10.10.4
+		dispatcher-01:
+          ansible_host: 10.10.10.5
+    publish:
+      hosts:
+        publish-00:
+          ansible_host: 10.10.10.69
+    author:
+      hosts:
+        author-00:
+          ansible_host: 10.10.10.132
